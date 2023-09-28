@@ -118,5 +118,72 @@ function showSuccessOverlay() {
     });
 }
 
+// Calculator
+
+    // Get the input element
+const input = document.getElementById("input");
+
+// Get the buttons
+const buttons = document.querySelectorAll("button");
+
+// Add event listeners to the buttons
+buttons.forEach((button) => {
+    button.addEventListener("click", (event) => {
+        // Get the button value
+        const value = event.target.value;
+
+        // Check if the button is an operator, a number, or a special key
+        if (value === "+" || value === "-" || value === "*" || value === "/") {
+            // Append the operator to the input
+            input.value += value;
+        } else if (value >= "0" && value <= "9") {
+            // Append the number to the input
+            if (input.value === "0") {
+                // Replace the initial zero with the number
+                input.value = value;
+            } else {
+                // Append the number to the input
+                input.value += value;
+            }
+        } else if (value === ".") {
+            // Append the decimal point to the input
+            if (!input.value.includes(".")) {
+                // Only append if there is no decimal point already
+                input.value += value;
+            }
+        } else if (value === "=") {
+            // Evaluate the expression and display the result
+            try {
+                // Use eval to calculate the result
+                const result = eval(input.value);
+
+                // Check if the result is a valid number
+                if (isNaN(result) || !isFinite(result)) {
+                    // Display an error message
+                    input.value = "Error";
+                } else {
+                    // Display the result
+                    input.value = result;
+                }
+            } catch (error) {
+                // Display an error message
+                input.value = "Error";
+            }
+        } else if (value === "C") {
+            // Clear the input
+            input.value = "0";
+        } else if (value === "<") {
+            // Delete the last character from the input
+            if (input.value.length > 1) {
+                // Remove the last character
+                input.value = input.value.slice(0, -1);
+            } else {
+                // Reset the input to zero
+                input.value = "0";
+            }
+        }
+    });
+});
+
 
 

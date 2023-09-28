@@ -238,11 +238,15 @@ main {
 .image-tag {
     margin-top: var(--padding-30px);
 }
-
+.span {
+    margin-top: var(--padding-40px);
+    margin-left: 40px;
+    font-style: italic;
+}
 .content__left-customer {
     display: flex;
     align-items: center;
-    margin-top: var(--padding-50px);
+    margin-top: var(--padding-20px);
     width: 40%;
 }
 
@@ -251,7 +255,10 @@ main {
     width: var(--padding-50px);
     height: var(--padding-50px);
 }
-
+.button-slide button{
+    background-color: #edf0f4;
+    color: #3b4754;
+}
 .customer__name-container {
     display: flex;
     flex-direction: column;
@@ -532,7 +539,8 @@ button:hover {
 }
 
 .call__us-header span {
-    width: 40%;
+    text-align: center;
+    width: 50%;
     font-size: var(--small-font-size);
 }
 
@@ -569,6 +577,10 @@ button:hover {
     margin: 0 var(--padding-10px);
 }
 
+
+
+
+  
 
 
 
